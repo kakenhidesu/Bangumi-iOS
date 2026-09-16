@@ -327,7 +327,7 @@ struct GlassPersonRelationsSection: View {
         .padding(.horizontal, 2)
         .padding(.vertical, 4)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
     }
     .task(id: collectionPersonIds) {
       await loadCollections()
@@ -492,7 +492,7 @@ struct GlassPersonWorkListView: View {
         .padding(.horizontal, 2)
         .padding(.vertical, 3)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
       .padding(.horizontal, theme.metrics.screenPadding)
       .padding(.vertical, 6)
       ScrollView {

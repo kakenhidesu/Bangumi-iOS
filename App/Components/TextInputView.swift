@@ -116,7 +116,7 @@ struct TextInputView: View {
         glassBody
       }
     }
-    .onChange(of: text) { _, newValue in
+    .onChangeCompat(of: text) { _, newValue in
       guard !newValue.isEmpty else { return }
       queueDraftSave()
     }

@@ -45,7 +45,7 @@ struct ImageView: View {
             .resizable()
             .transition(.fade(duration: 0.25))
             .scaledToFill()
-            .geometryGroup()
+            .geometryGroupIfAvailable()
             .frame(width: width, height: height, alignment: style.alignment)
             .applyClipShape(type: type, cornerRadius: cornerRadius)
             .contentShape(Rectangle())

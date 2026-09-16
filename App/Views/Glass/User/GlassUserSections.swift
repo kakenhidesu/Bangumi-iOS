@@ -115,7 +115,7 @@ struct GlassUserSubjectSection: View {
         GlassCollectionChips(subjectType: stype, counts: ctypes, selection: $ctype)
         covers
       }
-      .onChange(of: ctype) { _, _ in
+      .onChangeCompat(of: ctype) { _, _ in
         Task {
           await refresh()
         }
@@ -143,7 +143,7 @@ struct GlassUserSubjectSection: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 2)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
       .glassHorizontalClip()
     }
   }
@@ -274,7 +274,7 @@ struct GlassUserFriendsSection: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 2)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
       .glassHorizontalClip()
     }
   }
@@ -337,7 +337,7 @@ struct GlassUserGroupsSection: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 2)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
       .glassHorizontalClip()
     }
   }
@@ -423,7 +423,7 @@ struct GlassUserCharactersSection: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 2)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
       .glassHorizontalClip()
     }
   }
@@ -490,7 +490,7 @@ struct GlassUserPersonsSection: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 2)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
       .glassHorizontalClip()
     }
   }

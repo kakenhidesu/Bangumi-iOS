@@ -30,7 +30,7 @@ struct GlassTypeChips: View {
       .padding(.horizontal, theme.metrics.screenPadding)
       .padding(.vertical, 2)
     }
-    .scrollClipDisabled()
+    .scrollClipDisabledIfAvailable()
   }
 }
 

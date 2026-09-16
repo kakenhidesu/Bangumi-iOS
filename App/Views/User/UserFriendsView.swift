@@ -68,7 +68,7 @@ struct UserFriendsView: View {
             }
           }.padding(2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
   }

@@ -226,7 +226,7 @@ struct GroupDetailView: View {
       }
     }
     .toolbar {
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Menu {
           NavigationLink(value: NavDestination.groupMemberList(group.name)) {
             Label("成员列表", systemImage: "person.3")

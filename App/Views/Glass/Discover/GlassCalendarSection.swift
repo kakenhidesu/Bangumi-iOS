@@ -144,7 +144,7 @@ struct GlassCalendarSection: View {
     .task(id: reloadToken) {
       await loadCachedCalendar()
     }
-    .onChange(of: scenePhase) {
+    .onChangeCompat(of: scenePhase) {
       if scenePhase == .active {
         updateCurrentDate()
       }
@@ -206,9 +206,9 @@ private struct GlassCalendarCoverRow: View {
           }
           .frame(width: Self.cardWidth, alignment: .leading)
         }
-      }.scrollTargetLayout()
+      }.scrollTargetLayoutIfAvailable()
     }
-    .scrollClipDisabled()
-    .scrollTargetBehavior(.viewAligned)
+    .scrollClipDisabledIfAvailable()
+    .viewAlignedScrollTargetBehaviorIfAvailable()
   }
 }

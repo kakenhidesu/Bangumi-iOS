@@ -34,7 +34,7 @@ struct SubjectCollectionView: View {
             Spacer()
             Text("\(interest.updatedAt.datetimeDisplay)")
               + Text(" / \(interest.updatedAt.relativeAgeDisplay)")
-              .foregroundStyle(.secondary)
+              .foregroundColor(.secondary)
             Spacer()
           }
           .monospacedDigit()

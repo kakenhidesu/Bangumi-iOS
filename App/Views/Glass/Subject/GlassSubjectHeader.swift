@@ -78,7 +78,7 @@ struct GlassSubjectHeader: View {
         if !subject.platform.typeCN.isEmpty {
           Text(subject.category)
             .font(.caption2.weight(.bold))
-            .monospaced()
+            .monospacedCompat()
             .foregroundStyle(theme.secondaryText)
             .padding(.horizontal, 8)
             .padding(.vertical, 3)
@@ -122,7 +122,7 @@ struct GlassSubjectHeader: View {
       if !collectStats.isEmpty {
         Text(collectStats)
           .font(.caption2.weight(.semibold))
-          .monospaced()
+          .monospacedCompat()
           .foregroundStyle(theme.placeholder)
           .lineLimit(1)
       }
@@ -137,7 +137,7 @@ struct GlassSubjectHeader: View {
         if subject.rating.score > 0 {
           Text(subject.rating.score.rateDisplay)
             .font(.title3.weight(.heavy))
-            .monospaced()
+            .monospacedCompat()
             .foregroundStyle(theme.accentDeep)
         }
         Text("\(subject.rating.total) 人评分")
@@ -231,7 +231,7 @@ struct GlassSubjectRankPill: View {
       Spacer(minLength: 0)
       Text(verbatim: "#\(rank)")
         .font(.caption.weight(.heavy))
-        .monospaced()
+        .monospacedCompat()
         .foregroundStyle(theme.rank)
     }
     .padding(.horizontal, 12)

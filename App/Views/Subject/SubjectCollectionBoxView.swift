@@ -173,7 +173,7 @@ struct SubjectCollectionBoxView: View {
       }
       .adaptiveButtonStyle(priv ? .borderedProminent : .plain)
       .disabled(updating)
-      .sensoryFeedback(.selection, trigger: priv)
+      .selectionFeedbackCompat(trigger: priv)
     }
   }
 
@@ -193,7 +193,7 @@ struct SubjectCollectionBoxView: View {
         Section {
           Text("上次更新：\(interest.updatedAt.datetimeDisplay)")
             + Text(" / \(interest.updatedAt.relativeAgeDisplay)")
-            .foregroundStyle(.secondary)
+            .foregroundColor(.secondary)
         }
         .monospacedDigit()
         .font(.caption)

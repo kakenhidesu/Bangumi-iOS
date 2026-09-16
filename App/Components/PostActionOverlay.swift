@@ -204,13 +204,13 @@ struct PostActionOverlayPresenter<Target: Identifiable>: View {
         }
       }
     }
-    .onChange(of: request?.id, initial: true) { _, requestID in
+    .onChangeCompat(of: request?.id, initial: true) { _, requestID in
       guard requestID != nil else {
         controlsVisible = false
         return
       }
       isDismissing = false
-      withAnimation(.snappy(duration: 0.24, extraBounce: 0.06)) {
+      withAnimation(.snappyCompat(duration: 0.24, extraBounce: 0.06)) {
         controlsVisible = true
       }
     }
@@ -332,7 +332,7 @@ private struct PostReactionPickerPanel: View {
     .scaleEffect(isVisible ? 1 : 0.96, anchor: .trailing)
     .animation(
       isVisible
-        ? .snappy(duration: 0.22, extraBounce: 0.04)
+        ? .snappyCompat(duration: 0.22, extraBounce: 0.04)
         : .easeIn(duration: 0.16),
       value: isVisible
     )
@@ -443,7 +443,7 @@ private struct PostActionEntranceModifier: ViewModifier {
       .offset(x: isVisible ? 0 : 24)
       .animation(
         isVisible
-          ? .snappy(duration: 0.24, extraBounce: 0.08)
+          ? .snappyCompat(duration: 0.24, extraBounce: 0.08)
             .delay(Double(index) * 0.015)
           : .easeIn(duration: 0.16)
             .delay(Double(index) * 0.008),
@@ -458,7 +458,7 @@ private struct PostReactionChoiceButtonStyle: ButtonStyle {
       .scaleEffect(configuration.isPressed ? 0.88 : 1)
       .opacity(configuration.isPressed ? 0.72 : 1)
       .animation(
-        .snappy(duration: 0.14, extraBounce: 0),
+        .snappyCompat(duration: 0.14, extraBounce: 0),
         value: configuration.isPressed
       )
   }

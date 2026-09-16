@@ -116,7 +116,7 @@ struct GlassUserView: View {
   var body: some View {
     content
       .toolbar {
-        ToolbarItem(placement: .topBarTrailing) {
+        ToolbarItem(placement: .navigationBarTrailing) {
           Button {
             showMore = true
           } label: {
@@ -149,7 +149,7 @@ struct GlassUserView: View {
           )
         }
       }
-      .navigationDestination(item: $destination) { destination in
+      .navigationDestinationCompat(item: $destination) { destination in
         destination
       }
   }

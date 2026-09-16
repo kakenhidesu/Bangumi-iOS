@@ -117,8 +117,8 @@ struct ChiiSearchView: View {
     }
     .padding(.top, 4)
     .navigationTitle("搜索")
-    .toolbarTitleDisplayMode(.inline)
-    .searchable(
+    .navigationBarTitleDisplayMode(.inline)
+    .searchableCompat(
       text: $query, isPresented: $searching,
       placement: .navigationBarDrawer(displayMode: .always),
       prompt: "搜索条目，角色，人物"
@@ -131,7 +131,7 @@ struct ChiiSearchView: View {
         searching = true
       }
     }
-    .onChange(of: query) { _, newValue in
+    .onChangeCompat(of: query) { _, newValue in
       let nextShowsSearch = !newValue.isEmpty
       if showsSearch != nextShowsSearch {
         withAnimation(.default) {

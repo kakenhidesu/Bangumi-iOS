@@ -876,7 +876,7 @@ struct SubjectEpisodeWikiSheet: View {
                 Text(item.title).tag(item)
               }
             }
-            .onChange(of: mode) { _, newMode in
+            .onChangeCompat(of: mode) { _, newMode in
               switch newMode {
               case .create:
                 resetEpisodeCreateFields()
@@ -898,7 +898,7 @@ struct SubjectEpisodeWikiSheet: View {
                 }
                 .disabled(parsedEpisodeId == nil || loadingEpisode)
               }
-              .onChange(of: episodeIdText) {
+              .onChangeCompat(of: episodeIdText) {
                 resetLoadedEpisode()
               }
             }

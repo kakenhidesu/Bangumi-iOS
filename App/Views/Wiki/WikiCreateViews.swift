@@ -116,7 +116,7 @@ private struct SubjectWikiCreateView: View {
               Text(item.description).tag(item)
             }
           }
-          .onChange(of: type) {
+          .onChangeCompat(of: type) {
             ensurePlatform()
           }
 

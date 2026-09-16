@@ -160,7 +160,7 @@ struct GlassEpisodeView: View {
       .navigationTitle("章节详情")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
-        ToolbarItemGroup(placement: .topBarTrailing) {
+        ToolbarItemGroup(placement: .navigationBarTrailing) {
           Button {
             showCommentBox = true
           } label: {

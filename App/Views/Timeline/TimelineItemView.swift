@@ -78,7 +78,7 @@ struct TimelineItemView: View {
                   }
                 }
               }
-              .scrollClipDisabled()
+              .scrollClipDisabledIfAvailable()
             }
           case 3, 4:
             if let groups = item.memo.daily?.groups, groups.count > 0 {
@@ -92,7 +92,7 @@ struct TimelineItemView: View {
                   }
                 }
               }
-              .scrollClipDisabled()
+              .scrollClipDisabledIfAvailable()
             }
           default:
             EmptyView()
@@ -120,7 +120,7 @@ struct TimelineItemView: View {
                 }
               }
             }
-            .scrollClipDisabled()
+            .scrollClipDisabledIfAvailable()
           } else {
             if let collect = item.memo.subject?.first {
               if collect.rate > 0 {
@@ -189,7 +189,7 @@ struct TimelineItemView: View {
                 }
               }
             }
-            .scrollClipDisabled()
+            .scrollClipDisabledIfAvailable()
           }
 
         default:
@@ -243,7 +243,7 @@ struct TimelineItemView: View {
             Text("\(item.createdAt.datetimeDisplay)")
               .font(.callout)
               .padding()
-              .presentationCompactAdaptation(.popover)
+              .popoverCompactAdaptationIfAvailable()
           }
         }
         .foregroundStyle(.secondary)

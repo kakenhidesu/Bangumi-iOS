@@ -155,7 +155,7 @@ struct HotGroupsView: View {
             }
           }
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
         .frame(height: 120)
       }
     }

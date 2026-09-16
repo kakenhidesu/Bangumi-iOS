@@ -332,7 +332,7 @@ struct CommentListView: View {
         activeLoadKey = loadKey
         await refresh()
       }
-      .onChange(of: isolationMode) { _, isIsolated in
+      .onChangeCompat(of: isolationMode) { _, isIsolated in
         guard isIsolated else {
           return
         }
@@ -371,7 +371,7 @@ struct CommentListView: View {
       )
       .id(documentSurfaceID)
     } else if isEpisodeDetail && episodeLoadFailed {
-      ContentUnavailableView {
+      ContentUnavailableViewCompat {
         Label("加载失败", systemImage: "wifi.exclamationmark")
       } description: {
         Text("无法加载章节详情，请检查网络连接后重试。")
@@ -386,13 +386,13 @@ struct CommentListView: View {
     } else if isEpisodeDetail {
       ProgressView()
     } else if isolationMode {
-      ContentUnavailableView {
+      ContentUnavailableViewCompat {
         Label("隔离模式", systemImage: "eye.slash")
       } description: {
         Text("关闭隔离模式后可以查看评论。")
       }
     } else if loadFailed {
-      ContentUnavailableView {
+      ContentUnavailableViewCompat {
         Label("加载失败", systemImage: "wifi.exclamationmark")
       } description: {
         Text("无法加载评论，请检查网络连接后重试。")
@@ -412,7 +412,7 @@ struct CommentListView: View {
   @ToolbarContentBuilder
   private var toolbar: some ToolbarContent {
     if !isEpisodeDetail {
-      ToolbarItemGroup(placement: .topBarTrailing) {
+      ToolbarItemGroup(placement: .navigationBarTrailing) {
         Button {
           sheet = .newReply
         } label: {
@@ -653,7 +653,7 @@ struct CommentListView: View {
       else {
         return
       }
-      withAnimation(.snappy(duration: 0.22, extraBounce: 0.04)) {
+      withAnimation(.snappyCompat(duration: 0.22, extraBounce: 0.04)) {
         actionOverlay = .reactions(
           target,
           reactionType.available,
@@ -676,7 +676,7 @@ struct CommentListView: View {
       guard let target = postTarget(postID: postID) else {
         return
       }
-      withAnimation(.snappy(duration: 0.22, extraBounce: 0.04)) {
+      withAnimation(.snappyCompat(duration: 0.22, extraBounce: 0.04)) {
         actionOverlay = .more(
           target,
           canEdit: isAuthenticated && route.parent.supportsEditing

@@ -532,7 +532,7 @@ struct GlassProgressView: View {
     .navigationTitle("进度管理")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItemGroup(placement: .topBarLeading) {
+      ToolbarItemGroup(placement: .navigationBarLeading) {
         if isAuthenticated {
           NavigationLink(value: NavDestination.profileHome) {
             ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -541,7 +541,7 @@ struct GlassProgressView: View {
           .accessibilityLabel("我的")
         }
       }
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Button {
           showOptions = true
         } label: {
@@ -569,10 +569,10 @@ struct GlassProgressView: View {
         pendingRefreshAll = true
       }
     }
-    .onChange(of: progressTab) { Task { await reloadProgressPages(animate: true) } }
-    .onChange(of: search) { Task { await reloadProgressPages(animate: true) } }
-    .onChange(of: progressSortMode) { Task { await reloadProgressPages(animate: true) } }
-    .onChange(of: progressViewMode) { Task { await reloadProgressPages(animate: true) } }
+    .onChangeCompat(of: progressTab) { Task { await reloadProgressPages(animate: true) } }
+    .onChangeCompat(of: search) { Task { await reloadProgressPages(animate: true) } }
+    .onChangeCompat(of: progressSortMode) { Task { await reloadProgressPages(animate: true) } }
+    .onChangeCompat(of: progressViewMode) { Task { await reloadProgressPages(animate: true) } }
     .onReceive(
       NotificationCenter.default.publisher(for: ProgressSubjectInvalidation.notificationName),
       perform: handleProgressSubjectInvalidation
@@ -697,7 +697,7 @@ private struct GlassProgressListSection: View {
       }
     }
     .padding(.horizontal, theme.metrics.screenPadding)
-    .onChange(of: paginationResetToken) { _, _ in
+    .onChangeCompat(of: paginationResetToken) { _, _ in
       prefetchState.reset()
     }
   }
@@ -760,7 +760,7 @@ private struct GlassProgressGridSection: View {
       }
     }
     .padding(.horizontal, theme.metrics.screenPadding)
-    .onChange(of: paginationResetToken) { _, _ in
+    .onChangeCompat(of: paginationResetToken) { _, _ in
       prefetchState.reset()
     }
   }

@@ -432,7 +432,7 @@ struct ChiiProgressView: View {
         ProgressView()
           .padding()
       } else {
-        ContentUnavailableView {
+        ContentUnavailableViewCompat {
           Label("没有条目", systemImage: "tray")
         } description: {
           Text("当前列表为空，或是搜索无结果")
@@ -445,7 +445,7 @@ struct ChiiProgressView: View {
             .progressViewStyle(.linear)
         }.padding()
       } else {
-        ContentUnavailableView {
+        ContentUnavailableViewCompat {
           Label("没有收藏数据", systemImage: "tray")
         } description: {
           Text("下拉刷新以获取正在观看的条目")
@@ -491,7 +491,7 @@ struct ChiiProgressView: View {
       .padding(.horizontal, 8)
       .padding(.vertical, 4)
     }
-    .scrollClipDisabled()
+    .scrollClipDisabledIfAvailable()
   }
 
   private var progressOptionsMenu: some View {
@@ -536,7 +536,7 @@ struct ChiiProgressView: View {
 
   @ToolbarContentBuilder
   private var progressToolbar: some ToolbarContent {
-    ToolbarItemGroup(placement: .topBarLeading) {
+    ToolbarItemGroup(placement: .navigationBarLeading) {
       if isAuthenticated {
         NavigationLink(value: NavDestination.profileHome) {
           ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -545,7 +545,7 @@ struct ChiiProgressView: View {
         .accessibilityLabel("我的")
       }
     }
-    ToolbarItem(placement: .topBarTrailing) {
+    ToolbarItem(placement: .navigationBarTrailing) {
       progressToolbarContent
     }
   }
@@ -570,10 +570,10 @@ struct ChiiProgressView: View {
     .navigationTitle("进度管理")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar { progressToolbar }
-    .onChange(of: progressTab) { Task { await reloadProgressPages(animate: true) } }
-    .onChange(of: search) { Task { await reloadProgressPages(animate: true) } }
-    .onChange(of: progressSortMode) { Task { await reloadProgressPages(animate: true) } }
-    .onChange(of: progressViewMode) { Task { await reloadProgressPages(animate: true) } }
+    .onChangeCompat(of: progressTab) { Task { await reloadProgressPages(animate: true) } }
+    .onChangeCompat(of: search) { Task { await reloadProgressPages(animate: true) } }
+    .onChangeCompat(of: progressSortMode) { Task { await reloadProgressPages(animate: true) } }
+    .onChangeCompat(of: progressViewMode) { Task { await reloadProgressPages(animate: true) } }
     .onReceive(
       NotificationCenter.default.publisher(for: ProgressSubjectInvalidation.notificationName),
       perform: handleProgressSubjectInvalidation

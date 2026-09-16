@@ -219,7 +219,7 @@ struct SubjectDetailView: View {
     .navigationTitle(subject.name)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Menu {
           NavigationLink(value: NavDestination.subjectStaffList(subject.id)) {
             Label("制作人员", systemImage: "person.3")

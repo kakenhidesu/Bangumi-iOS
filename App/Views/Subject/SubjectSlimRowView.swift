@@ -130,7 +130,7 @@ struct SubjectSlimListItemView: View {
           reload: loadCollectionType
         )
     }
-    .onChange(of: initialCollectionType) { _, newValue in
+    .onChangeCompat(of: initialCollectionType) { _, newValue in
       collectionType = newValue
     }
     .onReceive(

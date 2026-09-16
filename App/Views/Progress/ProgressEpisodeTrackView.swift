@@ -488,7 +488,7 @@ struct ProgressEpisodeTicksView: View {
       recenterWindow()
       haptics.prepare()
     }
-    .onChange(of: episodes.map(\.id)) { _, _ in
+    .onChangeCompat(of: episodes.map(\.id)) { _, _ in
       resetScrub()
       recenterWindow()
     }
@@ -510,7 +510,7 @@ struct ProgressEpisodeTicksView: View {
       GeometryReader { geo in
         Color.clear
           .onAppear { barWidth = geo.size.width }
-          .onChange(of: geo.size.width) { _, width in
+          .onChangeCompat(of: geo.size.width) { _, width in
             barWidth = width
           }
       }
@@ -524,7 +524,7 @@ struct ProgressEpisodeTicksView: View {
     .contentShape(Rectangle())
     .gesture(scrubGesture)
     .padding(.vertical, -ProgressTickMetrics.hitSlop)
-    .onChange(of: touchActive) { _, active in
+    .onChangeCompat(of: touchActive) { _, active in
       guard !active else { return }
       if pressing {
         withAnimation(.spring(response: 0.24, dampingFraction: 0.8)) {
@@ -807,7 +807,7 @@ struct ProgressEpisodeTicksView: View {
   private func applyPlayhead(_ index: Int) {
     let clamped = min(max(index, 0), max(episodes.count - 1, 0))
     if scrubIndex != clamped {
-      withAnimation(.snappy(duration: 0.16)) {
+      withAnimation(.snappyCompat(duration: 0.16)) {
         scrubIndex = clamped
         clampWindow(to: clamped)
       }
@@ -1075,7 +1075,7 @@ struct ProgressEpisodeTicksView: View {
       }
     }
     .allowsHitTesting(false)
-    .animation(.snappy(duration: 0.16), value: captionAnchorIndex)
+    .animation(.snappyCompat(duration: 0.16), value: captionAnchorIndex)
   }
 
   private func tickLayout(width: CGFloat? = nil) -> (unit: CGFloat, flexes: [CGFloat])? {
@@ -1149,8 +1149,8 @@ struct ProgressEpisodeTicksView: View {
         y: focus ? theme.ctaShadow.y : theme.chipShadow.y
       )
       .animation(.spring(response: 0.2, dampingFraction: 0.68), value: playheadIndex)
-      .animation(.smooth(duration: 0.28), value: currentIndex)
-      .animation(.smooth(duration: 0.2), value: railAction)
+      .animation(.smoothCompat(duration: 0.28), value: currentIndex)
+      .animation(.smoothCompat(duration: 0.2), value: railAction)
   }
 
   private func tickWidth(distance: Int) -> CGFloat? {

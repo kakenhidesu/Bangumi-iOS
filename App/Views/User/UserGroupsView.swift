@@ -76,7 +76,7 @@ struct UserGroupsView: View {
             }
           }.padding(2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
   }

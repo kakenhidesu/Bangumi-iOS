@@ -129,7 +129,7 @@ struct SubjectWikiCoversView: View {
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       if canEditCovers {
-        ToolbarItem(placement: .topBarTrailing) {
+        ToolbarItem(placement: .navigationBarTrailing) {
           PhotosPicker(selection: $selectedPhoto, matching: .images) {
             Label("上传", systemImage: "square.and.arrow.up")
           }
@@ -137,7 +137,7 @@ struct SubjectWikiCoversView: View {
         }
       }
     }
-    .onChange(of: selectedPhoto) { _, newValue in
+    .onChangeCompat(of: selectedPhoto) { _, newValue in
       Task {
         await upload(newValue)
       }
@@ -292,7 +292,7 @@ struct WikiPortraitUploadSheet: View {
           .themedListRow()
         }
       }
-      .onChange(of: selectedPhoto) { _, newValue in
+      .onChangeCompat(of: selectedPhoto) { _, newValue in
         imageLoadToken += 1
         let token = imageLoadToken
         Task {

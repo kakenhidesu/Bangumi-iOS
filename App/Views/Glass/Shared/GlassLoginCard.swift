@@ -15,7 +15,7 @@ struct GlassAuthButton<Label: View>: View {
     .fullScreenCover(isPresented: $showEULA) {
       EULAView(isPresented: $showEULA)
     }
-    .onChange(of: showEULA) { _, newValue in
+    .onChangeCompat(of: showEULA) { _, newValue in
       if newValue == false && eulaAgreed {
         Task {
           await signInView.signIn()

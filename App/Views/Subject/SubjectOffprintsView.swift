@@ -55,12 +55,12 @@ struct SubjectOffprintsView: View {
           }
         }.padding(.horizontal, 2)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
     }
     .task(id: collectionSubjectIds) {
       await loadCollections()
     }
-    .onChange(of: activeSubject) { _, newValue in
+    .onChangeCompat(of: activeSubject) { _, newValue in
       if newValue == nil {
         Task {
           await loadCollections()

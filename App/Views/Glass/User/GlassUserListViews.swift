@@ -33,7 +33,7 @@ struct GlassUserSubjectCollectionListView: View {
     VStack(spacing: 0) {
       GlassCollectionChips(subjectType: stype, counts: ctypes, selection: $ctype)
         .padding(.vertical, 6)
-        .onChange(of: ctype) { _, _ in
+        .onChangeCompat(of: ctype) { _, _ in
           withAnimation(.default) {
             reloader.toggle()
           }

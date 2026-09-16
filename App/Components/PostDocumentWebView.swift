@@ -809,7 +809,7 @@ struct PostDocumentSurface: View {
           )
           .id(document.id)
           .padding(.trailing, 12)
-          .safeAreaPadding(.bottom, 12)
+          .bottomSafeAreaPaddingCompat(12)
         }
       } else {
         ProgressView()

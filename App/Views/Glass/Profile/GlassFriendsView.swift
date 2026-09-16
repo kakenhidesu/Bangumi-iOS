@@ -74,7 +74,7 @@ struct GlassFriendsView: View {
       }
       .padding(.horizontal, theme.metrics.screenPadding)
       .padding(.vertical, 6)
-      .onChange(of: type) { _, _ in
+      .onChangeCompat(of: type) { _, _ in
         withAnimation(.default) {
           reloader.toggle()
         }

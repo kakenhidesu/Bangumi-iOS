@@ -256,7 +256,7 @@ struct CachedSubjectTopicListView: View {
           }
         }
       }
-      .onChange(of: mode) { _, _ in
+      .onChangeCompat(of: mode) { _, _ in
         withAnimation(.default) {
           items = []
           offset = 0
@@ -269,7 +269,7 @@ struct CachedSubjectTopicListView: View {
           await loadFirstPage()
         }
       }
-      .onChange(of: reloader) { _, _ in
+      .onChangeCompat(of: reloader) { _, _ in
         withAnimation(.default) {
           exhausted = false
           offset = 0

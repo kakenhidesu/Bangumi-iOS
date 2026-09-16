@@ -135,7 +135,7 @@ struct CharacterView: View {
     .navigationTitle(title)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Menu {
           if isAuthenticated && profile.groupEnum.canAccessWikiTools {
             Menu {

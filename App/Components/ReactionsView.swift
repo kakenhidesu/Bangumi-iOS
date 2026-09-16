@@ -219,7 +219,7 @@ struct ReactionButton: View {
         }
         .disabled(!isAuthenticated || updating)
         .padding()
-        .presentationCompactAdaptation(.popover)
+        .popoverCompactAdaptationIfAvailable()
       }
 
       if showLabel {

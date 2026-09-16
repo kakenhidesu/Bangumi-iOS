@@ -17,7 +17,7 @@ struct ReplyFilterSortButtons: View {
           EmptyView()
         }
         .pickerStyle(.inline)
-        .onChange(of: filterMode) {
+        .onChangeCompat(of: filterMode) {
           withAnimation(.default) {
             onFilterChange()
           }

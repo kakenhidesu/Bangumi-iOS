@@ -224,10 +224,10 @@ private struct TrendingSubjectTypeView: View {
               await reloadCollectionType(subjectId: item.subject.id)
             }
         }
-      }.scrollTargetLayout()
+      }.scrollTargetLayoutIfAvailable()
     }
-    .scrollClipDisabled()
-    .scrollTargetBehavior(.viewAligned)
+    .scrollClipDisabledIfAvailable()
+    .viewAlignedScrollTargetBehaviorIfAvailable()
   }
 
   var body: some View {

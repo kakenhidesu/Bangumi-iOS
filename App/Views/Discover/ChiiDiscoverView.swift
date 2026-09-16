@@ -74,9 +74,9 @@ struct ChiiDiscoverView: View {
       await refresh()
     }
     .navigationTitle("发现")
-    .toolbarTitleDisplayMode(.inline)
+    .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItemGroup(placement: .topBarLeading) {
+      ToolbarItemGroup(placement: .navigationBarLeading) {
         if isAuthenticated {
           NavigationLink(value: NavDestination.profileHome) {
             ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -85,7 +85,7 @@ struct ChiiDiscoverView: View {
           .accessibilityLabel("我的")
         }
       }
-      ToolbarItemGroup(placement: .topBarTrailing) {
+      ToolbarItemGroup(placement: .navigationBarTrailing) {
         if isAuthenticated, profile.canAccessWikiTools {
           NavigationLink(value: NavDestination.wikiHome) {
             Image(systemName: "pencil.and.list.clipboard")

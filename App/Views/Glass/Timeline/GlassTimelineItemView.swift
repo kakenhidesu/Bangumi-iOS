@@ -428,7 +428,7 @@ struct GlassTimelineItemView: View {
         Text(item.createdAt.datetimeDisplay)
           .font(.callout)
           .padding()
-          .presentationCompactAdaptation(.popover)
+          .popoverCompactAdaptationIfAvailable()
       }
     }
   }

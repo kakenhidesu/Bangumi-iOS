@@ -88,7 +88,7 @@ public struct ImagePreviewer: View {
               Image(systemName: "xmark")
                 .contentShape(Circle())
             }
-            .buttonBorderShape(.circle)
+            .circleButtonBorderShapeCompat()
             .controlSize(.large)
             .adaptiveButtonStyle(.borderless)
 
@@ -100,7 +100,7 @@ public struct ImagePreviewer: View {
               Image(systemName: "square.and.arrow.up")
                 .contentShape(Circle())
             }
-            .buttonBorderShape(.circle)
+            .circleButtonBorderShapeCompat()
             .controlSize(.large)
             .adaptiveButtonStyle(.borderless)
           }

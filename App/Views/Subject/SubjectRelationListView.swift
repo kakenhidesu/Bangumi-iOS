@@ -27,7 +27,7 @@ struct SubjectRelationListView: View {
     }
     .padding(.horizontal, 8)
     .pickerStyle(.segmented)
-    .onChange(of: subjectType) { _, _ in
+    .onChangeCompat(of: subjectType) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }

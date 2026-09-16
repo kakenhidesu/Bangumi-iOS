@@ -97,7 +97,7 @@ struct GlassSubjectSummary: View {
           .lineLimit(1)
         Text("\(tag.count)")
           .font(.caption2.weight(.semibold))
-          .monospaced()
+          .monospacedCompat()
           .foregroundStyle(isMeta ? theme.onTintText.opacity(0.7) : theme.tertiaryText)
       }
       .padding(.horizontal, 10)
@@ -172,7 +172,7 @@ struct GlassSubjectCharacters: View {
           }
           .padding(.vertical, 2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
     .task(id: collectionCharacterIds) {
@@ -217,7 +217,7 @@ struct GlassCharacterCard: View {
             HStack(spacing: 3) {
               Text(item.type.description)
                 .font(.caption2.weight(.bold))
-                .monospaced()
+                .monospacedCompat()
                 .foregroundStyle(item.type == .main ? theme.onTintText : theme.secondaryText)
               if let comment = item.character.comment, comment > 0, !isolationMode {
                 Text("(+\(comment))")
@@ -301,7 +301,7 @@ struct GlassSubjectRelations: View {
               VStack(alignment: .leading, spacing: 5) {
                 Text(relationLabel(relation))
                   .font(.caption2.weight(.bold))
-                  .monospaced()
+                  .monospacedCompat()
                   .foregroundStyle(theme.placeholder)
                   .lineLimit(1)
                 ImageView(img: relation.subject.images?.resize(.r200))
@@ -337,13 +337,13 @@ struct GlassSubjectRelations: View {
           .padding(.horizontal, 2)
           .padding(.vertical, 2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
     .task(id: collectionSubjectIds) {
       await loadCollections()
     }
-    .onChange(of: activeSubject) { _, newValue in
+    .onChangeCompat(of: activeSubject) { _, newValue in
       if newValue == nil {
         Task {
           await loadCollections()
@@ -423,13 +423,13 @@ struct GlassSubjectRecs: View {
           .padding(.horizontal, 2)
           .padding(.vertical, 2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
     .task(id: collectionSubjectIds) {
       await loadCollections()
     }
-    .onChange(of: activeSubject) { _, newValue in
+    .onChangeCompat(of: activeSubject) { _, newValue in
       if newValue == nil {
         Task {
           await loadCollections()
@@ -756,16 +756,16 @@ struct GlassSubjectCollects: View {
           .padding(.horizontal, 2)
           .padding(.vertical, 2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
-    .onChange(of: latestCollects) { _, newValue in
+    .onChangeCompat(of: latestCollects) { _, newValue in
       guard !isLoading else { return }
       withAnimation(.default) {
         collects = newValue
       }
     }
-    .onChange(of: subjectCollectsFilterMode) { _, _ in
+    .onChangeCompat(of: subjectCollectsFilterMode) { _, _ in
       updateCollects()
     }
   }
@@ -951,7 +951,7 @@ struct GlassSubjectTopicRow: View {
         if let count = topic.replyCount, count > 0 {
           Text("+\(count)")
             .font(.caption2.weight(.bold))
-            .monospaced()
+            .monospacedCompat()
             .foregroundStyle(theme.onTintText)
             .padding(.horizontal, 8)
             .padding(.vertical, 2)
@@ -1070,7 +1070,7 @@ struct GlassSubjectFooter: View {
   var body: some View {
     Text(verbatim: "— 到底了 · subject/\(subjectId) —")
       .font(.caption2.weight(.semibold))
-      .monospaced()
+      .monospacedCompat()
       .foregroundStyle(theme.placeholder)
       .frame(maxWidth: .infinity)
       .padding(.top, 6)

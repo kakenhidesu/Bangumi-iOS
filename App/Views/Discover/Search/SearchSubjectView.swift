@@ -28,7 +28,7 @@ struct SearchSubjectView: View {
     OffsetPagedView<SubjectListItemDTO, _>(reloader: reloader, nextPageFunc: fetch) { item in
       SubjectSlimListItemView(subject: item.subject, collectionType: item.collectionType)
     }
-    .onChange(of: subjectType) { _, _ in
+    .onChangeCompat(of: subjectType) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }

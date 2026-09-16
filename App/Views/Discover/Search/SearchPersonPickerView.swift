@@ -4,7 +4,6 @@ struct SearchPersonPickerView: View {
   let onSelect: (Int) -> Void
 
   @State private var searchText: String = ""
-  @State private var searching: Bool = false
   @State private var remote: Bool = false
   @State private var showsResults = false
 
@@ -25,9 +24,9 @@ struct SearchPersonPickerView: View {
           }
         }.padding()
       }
-      .searchable(text: $searchText, isPresented: $searching, prompt: "搜索人物")
+      .searchable(text: $searchText, prompt: "搜索人物")
       .searchInputTraits()
-      .searchPresentationToolbarBehavior(.avoidHidingContent)
+      .searchPresentationToolbarAvoidHidingContentIfAvailable()
       .onAppear {
         showsResults = !searchText.isEmpty
       }
@@ -36,7 +35,7 @@ struct SearchPersonPickerView: View {
           remote = true
         }
       }
-      .onChange(of: searchText) { _, newValue in
+      .onChangeCompat(of: searchText) { _, newValue in
         let nextShowsResults = !newValue.isEmpty
         if showsResults != nextShowsResults {
           withAnimation(.default) {

@@ -398,6 +398,37 @@ private final class BBCodeTextBlockView: UITextView, UITextViewDelegate {
 
   func textView(
     _ textView: UITextView,
+    shouldInteractWith url: URL,
+    in characterRange: NSRange,
+    interaction: UITextItemInteraction
+  ) -> Bool {
+    if url.scheme == maskLinkURL.scheme {
+      var enclosingRange = NSRange()
+      guard
+        interaction == .invokeDefaultAction,
+        baseAttributedText.attribute(
+          .bbcodeMask,
+          at: characterRange.location,
+          effectiveRange: &enclosingRange
+        ) != nil
+      else {
+        return false
+      }
+      toggleMask(MaskRangeKey(enclosingRange))
+      return false
+    }
+
+    guard interaction == .invokeDefaultAction, let openURLHandler else {
+      return true
+    }
+
+    openURLHandler(url)
+    return false
+  }
+
+  @available(iOS 17.0, *)
+  func textView(
+    _ textView: UITextView,
     primaryActionFor textItem: UITextItem,
     defaultAction: UIAction
   ) -> UIAction? {

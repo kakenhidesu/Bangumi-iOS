@@ -118,7 +118,7 @@ struct PostDocumentNavigatorOverlay: View {
               visiblePostID: visiblePostID,
               onSelect: onSelect
             )
-            .presentationCompactAdaptation(.sheet)
+            .sheetCompactAdaptationIfAvailable()
           }
         }
 
@@ -209,7 +209,7 @@ struct PostDocumentNavigatorOverlay: View {
             visiblePostID: visiblePostID,
             onSelect: onSelect
           )
-          .presentationCompactAdaptation(.sheet)
+          .sheetCompactAdaptationIfAvailable()
         }
       }
 

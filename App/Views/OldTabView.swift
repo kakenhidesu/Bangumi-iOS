@@ -139,13 +139,13 @@ struct OldTabView: View {
     .onAppear {
       selectVisibleTabIfNeeded()
     }
-    .onChange(of: mainTab) { _, newValue in
+    .onChangeCompat(of: mainTab) { _, newValue in
       AppConfig.mainTab = newValue
     }
-    .onChange(of: isAuthenticated) { _, _ in
+    .onChangeCompat(of: isAuthenticated) { _, _ in
       selectVisibleTabIfNeeded()
     }
-    .onChange(of: isolationMode) { _, _ in
+    .onChangeCompat(of: isolationMode) { _, _ in
       selectVisibleTabIfNeeded()
     }
   }

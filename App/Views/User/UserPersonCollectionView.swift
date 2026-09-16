@@ -71,7 +71,7 @@ struct UserPersonCollectionView: View {
             }
           }.padding(2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
   }

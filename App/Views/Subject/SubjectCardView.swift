@@ -143,7 +143,7 @@ struct CollectionTypeChipsView: View {
         }
       }
     }
-    .scrollClipDisabled()
+    .scrollClipDisabledIfAvailable()
   }
 }
 
@@ -230,7 +230,7 @@ struct SubjectCollectionSectionView: View {
         .padding(.horizontal, contentInset)
         .padding(.bottom, contentInset)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
     }
   }
 }

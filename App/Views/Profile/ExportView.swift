@@ -99,7 +99,7 @@ struct ExportView: View {
     .navigationTitle("导出收藏")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Button("全选") {
           selectedFields = Set(ExportableField.allCases)
         }
@@ -114,10 +114,10 @@ struct ExportView: View {
     .task {
       refreshCount()
     }
-    .onChange(of: subjectType) {
+    .onChangeCompat(of: subjectType) {
       refreshCount()
     }
-    .onChange(of: collectionType) {
+    .onChangeCompat(of: collectionType) {
       refreshCount()
     }
   }

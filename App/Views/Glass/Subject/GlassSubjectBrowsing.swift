@@ -134,7 +134,7 @@ struct GlassSubjectBrowseRow: View {
     .subjectPreview(subject, collectionType: collectionType) {
       await loadCollectionType()
     }
-    .onChange(of: initialCollectionType) { _, newValue in
+    .onChangeCompat(of: initialCollectionType) { _, newValue in
       collectionType = newValue
     }
     .onReceive(
