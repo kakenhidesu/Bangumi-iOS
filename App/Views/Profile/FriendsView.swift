@@ -53,7 +53,7 @@ struct FriendsView: View {
       }
       .pickerStyle(.segmented)
       .padding(.horizontal, 8)
-      .onChange(of: type) { _, _ in
+      .onChangeCompat(of: type) { _, _ in
         withAnimation(.default) {
           reloader.toggle()
         }

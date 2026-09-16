@@ -229,7 +229,7 @@ struct CalendarView: View {
     .onAppear {
       updateCurrentDate()
     }
-    .onChange(of: scenePhase) {
+    .onChangeCompat(of: scenePhase) {
       if scenePhase == .active {
         updateCurrentDate()
       }

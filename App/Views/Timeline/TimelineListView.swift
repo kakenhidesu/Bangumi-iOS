@@ -159,7 +159,7 @@ struct TimelineListView: View {
         }
       }
     }
-    .onChange(of: timelineViewMode) {
+    .onChangeCompat(of: timelineViewMode) {
       Task {
         withAnimation(.default) {
           loading = true

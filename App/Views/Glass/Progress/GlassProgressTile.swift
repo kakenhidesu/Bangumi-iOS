@@ -80,7 +80,7 @@ struct GlassProgressTile: View {
   private var progressBadge: some View {
     Text(progressBadgeText)
       .font(.caption2.weight(.bold))
-      .monospaced()
+      .monospacedCompat()
       .foregroundStyle(.white)
       .padding(.horizontal, 8)
       .padding(.vertical, 3)

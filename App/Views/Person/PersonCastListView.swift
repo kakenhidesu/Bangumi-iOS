@@ -28,7 +28,7 @@ struct PersonCastListView: View {
     }
     .padding(.horizontal, 8)
     .pickerStyle(.segmented)
-    .onChange(of: type) { _, _ in
+    .onChangeCompat(of: type) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }

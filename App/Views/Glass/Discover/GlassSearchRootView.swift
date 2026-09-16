@@ -91,7 +91,7 @@ struct GlassSearchRootView: View {
       }
       .padding(.horizontal, 2)
     }
-    .scrollClipDisabled()
+    .scrollClipDisabledIfAvailable()
   }
 
   private func chip(for type: SubjectType) -> some View {
@@ -148,7 +148,7 @@ struct GlassSearchRootView: View {
       await refresh()
     }
     .navigationTitle("搜索")
-    .toolbarTitleDisplayMode(.inline)
+    .navigationBarTitleDisplayMode(.inline)
     .onAppear {
       showsSearch = !query.isEmpty
       refreshInitiallyIfNeeded()
@@ -156,7 +156,7 @@ struct GlassSearchRootView: View {
         searchFocused = true
       }
     }
-    .onChange(of: query) { _, _ in
+    .onChangeCompat(of: query) { _, _ in
       syncShowsSearch()
       if keepRemoteOnQueryChange {
         keepRemoteOnQueryChange = false

@@ -154,7 +154,7 @@ struct GlassCollectionListView: View {
           subjectType: subjectType, counts: counts, selection: $collectionType
         )
         .padding(.vertical, 6)
-        .onChange(of: collectionType) { _, _ in
+        .onChangeCompat(of: collectionType) { _, _ in
           withAnimation(.default) {
             reloader.toggle()
           }

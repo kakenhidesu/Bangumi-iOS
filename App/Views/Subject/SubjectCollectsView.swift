@@ -146,16 +146,16 @@ struct SubjectCollectsView: View {
             }
           }.padding(.horizontal, 2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
-    .onChange(of: latestCollects) { _, newValue in
+    .onChangeCompat(of: latestCollects) { _, newValue in
       guard !isLoading else { return }
       withAnimation(.default) {
         collects = newValue
       }
     }
-    .onChange(of: subjectCollectsFilterMode) { _, _ in
+    .onChangeCompat(of: subjectCollectsFilterMode) { _, _ in
       updateCollects()
     }
   }

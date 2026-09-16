@@ -125,7 +125,7 @@ struct NoticeView: View {
         }
         .themedListRow()
       } else if notices.isEmpty {
-        ContentUnavailableView("暂无提醒", systemImage: "bell.slash")
+        ContentUnavailableViewCompat("暂无提醒", systemImage: "bell.slash")
           .listRowSeparator(.hidden)
           .themedListRow()
       } else {
@@ -171,7 +171,7 @@ struct NoticeView: View {
       .navigationTitle(unreadCount > 0 ? "电波提醒 (\(unreadCount))" : "电波提醒")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
-        ToolbarItem(placement: .topBarTrailing) {
+        ToolbarItem(placement: .navigationBarTrailing) {
           Button {
             clearNotice()
           } label: {

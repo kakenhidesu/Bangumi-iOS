@@ -268,7 +268,7 @@ where C: View, T: Identifiable & Codable & Sendable {
         reload()
       }
     }
-    .onChange(of: reloader) { _, _ in
+    .onChangeCompat(of: reloader) { _, _ in
       reload()
     }
   }
@@ -403,7 +403,7 @@ where C: View, T: Identifiable & Codable & Sendable {
         reload()
       }
     }
-    .onChange(of: reloader) { _, _ in
+    .onChangeCompat(of: reloader) { _, _ in
       reload()
     }
   }

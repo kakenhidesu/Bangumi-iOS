@@ -140,7 +140,7 @@ struct BlogView: View {
     .navigationTitle(title)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Menu {
           Button {
             showIndexPicker = true
@@ -189,7 +189,7 @@ struct BlogSubjectsView: View {
       .navigationTitle("关联条目")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
-        ToolbarItem(placement: .topBarTrailing) {
+        ToolbarItem(placement: .navigationBarTrailing) {
           Button("关闭") {
             dismiss()
           }

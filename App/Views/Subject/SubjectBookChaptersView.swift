@@ -181,8 +181,8 @@ private struct LargeBookProgressEditorView: View {
       actions: chapterActions
     )
     .disabled(updating)
-    .onChange(of: inputEps) { _, _ in parseInputEps() }
-    .onChange(of: inputVols) { _, _ in parseInputVols() }
+    .onChangeCompat(of: inputEps) { _, _ in parseInputEps() }
+    .onChangeCompat(of: inputVols) { _, _ in parseInputVols() }
   }
 }
 
@@ -214,7 +214,7 @@ struct LargeChapterView: View {
                 .foregroundStyle(.secondary)
             }.buttonStyle(.scale)
             Spacer()
-          }.monospaced()
+          }.monospacedCompat()
           HStack(alignment: .firstTextBaseline, spacing: 0) {
             Text("Vol. ").foregroundStyle(.secondary)
             TextField("\(data.volStatus)", text: inputs.vols)
@@ -233,7 +233,7 @@ struct LargeChapterView: View {
                 .foregroundStyle(.secondary)
             }.buttonStyle(.scale)
             Spacer()
-          }.monospaced()
+          }.monospacedCompat()
         }
         Spacer()
         if state.updating {

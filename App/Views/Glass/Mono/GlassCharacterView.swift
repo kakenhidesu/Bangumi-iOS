@@ -265,7 +265,7 @@ struct GlassCharacterRelationsSection: View {
         .padding(.horizontal, 2)
         .padding(.vertical, 4)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
     }
     .task(id: collectionCharacterIds) {
       await loadCollections()
@@ -413,7 +413,7 @@ struct GlassCastTypeChips: View {
       .padding(.horizontal, 2)
       .padding(.vertical, 3)
     }
-    .scrollClipDisabled()
+    .scrollClipDisabledIfAvailable()
   }
 }
 

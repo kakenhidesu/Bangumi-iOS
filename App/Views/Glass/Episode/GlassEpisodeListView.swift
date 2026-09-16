@@ -57,7 +57,7 @@ struct GlassEpisodeListView: View {
           filterCollection.toggle()
         }
       }
-      .sensoryFeedback(.selection, trigger: filterCollection)
+      .selectionFeedbackCompat(trigger: filterCollection)
       GlassGhostIconButton(
         systemImage: sortDesc ? "arrow.down" : "arrow.up"
       ) {
@@ -65,7 +65,7 @@ struct GlassEpisodeListView: View {
           sortDesc.toggle()
         }
       }
-      .sensoryFeedback(.selection, trigger: sortDesc)
+      .selectionFeedbackCompat(trigger: sortDesc)
     }
     .padding(.horizontal, theme.metrics.screenPadding)
   }

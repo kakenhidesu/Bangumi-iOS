@@ -367,7 +367,7 @@ struct SettingsView: View {
         .themedListRow()
       }
     }
-    .contentMargins(.top, 0, for: .scrollContent)
+    .scrollContentMarginsIfAvailable(.top, 0)
   }
 
   private var glassBody: some View {
@@ -675,7 +675,7 @@ struct SettingsView: View {
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       if isAuthenticated {
-        ToolbarItem(placement: .topBarTrailing) {
+        ToolbarItem(placement: .navigationBarTrailing) {
           Menu {
             Button(role: .destructive) {
               clearDraftsConfirm = true

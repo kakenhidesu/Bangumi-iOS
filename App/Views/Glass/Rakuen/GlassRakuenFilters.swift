@@ -41,7 +41,7 @@ struct GlassRakuenFilters: View {
         }
         .padding(.vertical, 3)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
     }
   }
 

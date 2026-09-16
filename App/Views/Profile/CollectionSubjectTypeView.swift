@@ -63,7 +63,7 @@ struct CollectionSubjectTypeView: View {
     ) {
       await reloadAfterCollectionSaved()
     }
-    .onChange(of: ctype) { _, _ in
+    .onChangeCompat(of: ctype) { _, _ in
       Task {
         await load()
       }

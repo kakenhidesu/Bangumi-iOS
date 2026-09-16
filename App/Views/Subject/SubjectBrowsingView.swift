@@ -271,7 +271,7 @@ struct SubjectBrowsingView: View {
         glassBody
       }
     }
-    .onChange(of: options.sort) { _, _ in
+    .onChangeCompat(of: options.sort) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }
@@ -281,7 +281,7 @@ struct SubjectBrowsingView: View {
     .sheet(isPresented: $showFilter) {
       SubjectBrowsingFilterView(type: type, filter: filterBinding, categories: categories)
     }
-    .onChange(of: showFilter) {
+    .onChangeCompat(of: showFilter) {
       if !showFilter {
         withAnimation(.default) {
           reloader.toggle()
@@ -289,7 +289,7 @@ struct SubjectBrowsingView: View {
       }
     }
     .toolbar {
-      ToolbarItemGroup(placement: .topBarTrailing) {
+      ToolbarItemGroup(placement: .navigationBarTrailing) {
         Button {
           withAnimation(.default) {
             showFilter = true
@@ -406,7 +406,7 @@ struct SubjectBrowsingFilterView: View {
     SheetView(
       title: "筛选",
       showsCloseButton: false,
-      controlsPlacement: .topBarTrailing
+      controlsPlacement: .navigationBarTrailing
     ) {
       ScrollView {
         VStack {
@@ -779,12 +779,12 @@ struct SubjectTagBrowsingView: View {
         }
       }.padding(.horizontal, 8)
     }
-    .onChange(of: tagsCat) { _, _ in
+    .onChangeCompat(of: tagsCat) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }
     }
-    .onChange(of: sort) { _, _ in
+    .onChangeCompat(of: sort) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }
@@ -792,7 +792,7 @@ struct SubjectTagBrowsingView: View {
     .navigationTitle(title)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItemGroup(placement: .topBarTrailing) {
+      ToolbarItemGroup(placement: .navigationBarTrailing) {
         Menu {
           Picker("标签", selection: $tagsCat.animated()) {
             ForEach(SubjectTagsCategory.allCases, id: \.self) { cat in

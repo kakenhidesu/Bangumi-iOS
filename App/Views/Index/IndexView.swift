@@ -224,7 +224,7 @@ struct IndexView: View {
             .controlSize(.mini)
             .padding(2)
           }
-          .scrollClipDisabled()
+          .scrollClipDisabledIfAvailable()
           OffsetPagedView<IndexRelatedDTO, _>(reloader: reloader, nextPageFunc: loadRelated) {
             item in
             IndexRelatedItemView(
@@ -273,7 +273,7 @@ struct IndexView: View {
     .navigationTitle("目录")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Menu {
           if isOwner {
             Button {

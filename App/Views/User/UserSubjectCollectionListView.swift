@@ -44,7 +44,7 @@ struct UserSubjectCollectionListView: View {
   private var classicBody: some View {
     VStack {
       CollectionTypeSegmentedPickerView(subjectType: stype, counts: ctypes, selection: $ctype)
-        .onChange(of: ctype) { _, _ in
+        .onChangeCompat(of: ctype) { _, _ in
           withAnimation(.default) {
             reloader.toggle()
           }

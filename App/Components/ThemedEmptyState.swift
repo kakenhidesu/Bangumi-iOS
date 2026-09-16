@@ -23,7 +23,7 @@ struct ThemedEmptyState: View {
   }
 
   private var classicBody: some View {
-    ContentUnavailableView {
+    ContentUnavailableViewCompat {
       Label(title, systemImage: systemImage)
     } description: {
       Text(description)

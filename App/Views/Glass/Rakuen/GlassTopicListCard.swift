@@ -284,7 +284,7 @@ where Item: Identifiable & Codable & Sendable, Row: View {
         }
       }
     }
-    .onChange(of: reloader) { _, _ in
+    .onChangeCompat(of: reloader) { _, _ in
       Task {
         await reload()
       }

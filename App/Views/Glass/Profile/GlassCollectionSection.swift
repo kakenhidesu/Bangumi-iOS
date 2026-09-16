@@ -162,7 +162,7 @@ struct GlassCollectionChips: View {
       .padding(.horizontal, 14)
       .padding(.vertical, 2)
     }
-    .scrollClipDisabled()
+    .scrollClipDisabledIfAvailable()
     .glassHorizontalClip()
   }
 }
@@ -245,7 +245,7 @@ struct GlassCollectionSection: View {
       GlassCollectionChips(subjectType: stype, counts: counts, selection: $ctype)
       covers
     }
-    .onChange(of: ctype) { _, _ in
+    .onChangeCompat(of: ctype) { _, _ in
       Task {
         await load()
       }
@@ -283,7 +283,7 @@ struct GlassCollectionSection: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 2)
       }
-      .scrollClipDisabled()
+      .scrollClipDisabledIfAvailable()
       .glassHorizontalClip()
     }
   }

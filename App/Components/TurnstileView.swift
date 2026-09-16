@@ -99,7 +99,7 @@ struct TurnstileSheetView: View {
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
       .padding()
-      .onChange(of: token) {
+      .onChangeCompat(of: token) {
         if !token.isEmpty {
           dismiss()
           onSuccess()

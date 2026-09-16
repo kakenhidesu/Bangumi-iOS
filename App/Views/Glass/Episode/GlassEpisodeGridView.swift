@@ -124,7 +124,7 @@ struct GlassEpisodeGridView: View {
           HStack(alignment: .center, spacing: 6) {
             Text(verbatim: "SP")
               .font(.caption2.weight(.heavy))
-              .monospaced()
+              .monospacedCompat()
               .foregroundStyle(theme.tertiaryText)
             Rectangle()
               .fill(theme.separator)

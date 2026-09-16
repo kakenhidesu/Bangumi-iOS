@@ -44,7 +44,7 @@ struct EpisodeListView: View {
       Image(systemName: filterCollection ? "eye.slash.circle.fill" : "eye.circle.fill")
         .foregroundStyle(filterCollection ? .accent : .secondary)
         .font(.title)
-        .sensoryFeedback(.selection, trigger: filterCollection)
+        .selectionFeedbackCompat(trigger: filterCollection)
         .onTapGesture {
           withAnimation(.default) {
             self.filterCollection.toggle()
@@ -60,7 +60,7 @@ struct EpisodeListView: View {
       Image(systemName: sortDesc ? "arrow.down.circle.fill" : "arrow.up.circle.fill")
         .foregroundStyle(sortDesc ? .accent : .secondary)
         .font(.title)
-        .sensoryFeedback(.selection, trigger: sortDesc)
+        .selectionFeedbackCompat(trigger: sortDesc)
         .onTapGesture {
           withAnimation(.default) {
             self.sortDesc.toggle()

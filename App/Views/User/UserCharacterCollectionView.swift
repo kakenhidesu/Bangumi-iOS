@@ -71,7 +71,7 @@ struct UserCharacterCollectionView: View {
             }
           }.padding(2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
   }

@@ -165,11 +165,11 @@ struct GlassTimelineListView: View {
       GlassTimelineSayView()
     }
     .onAppear(perform: loadInitialPageIfNeeded)
-    .onChange(of: timelineViewMode) {
+    .onChangeCompat(of: timelineViewMode) {
       guard isAuthenticated else { return }
       reloadForModeChange()
     }
-    .onChange(of: isAuthenticated) {
+    .onChangeCompat(of: isAuthenticated) {
       reloadForModeChange()
     }
     .refreshable {

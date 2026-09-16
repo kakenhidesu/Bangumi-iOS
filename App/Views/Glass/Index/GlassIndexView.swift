@@ -129,7 +129,7 @@ struct GlassIndexView: View {
       .padding(.horizontal, 2)
       .padding(.vertical, 3)
     }
-    .scrollClipDisabled()
+    .scrollClipDisabledIfAvailable()
   }
 
   var body: some View {

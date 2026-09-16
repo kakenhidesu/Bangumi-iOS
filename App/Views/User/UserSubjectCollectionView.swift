@@ -49,7 +49,7 @@ struct UserSubjectCollectionView: View {
         subjects: subjects,
         refreshing: refreshing
       )
-      .onChange(of: ctype) { _, _ in
+      .onChangeCompat(of: ctype) { _, _ in
         Task {
           await refresh()
         }

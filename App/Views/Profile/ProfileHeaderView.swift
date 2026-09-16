@@ -126,6 +126,6 @@ private struct ProfileRoleBadge: View {
       .lineLimit(1)
       .padding(.horizontal, 8)
       .padding(.vertical, 4)
-      .background(Color(uiColor: .tertiarySystemFill), in: .capsule)
+      .background(Color(uiColor: .tertiarySystemFill), in: Capsule())
   }
 }

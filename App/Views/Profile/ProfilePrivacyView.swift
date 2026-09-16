@@ -45,7 +45,7 @@ struct ProfilePrivacyView: View {
     .navigationTitle("隐私设置")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Button(isSaving ? "保存中" : "保存") {
           Task {
             await save()

@@ -60,12 +60,12 @@ struct SubjectCollectsListView: View {
         }.pickerStyle(.segmented)
       }
       .padding(.horizontal, 8)
-      .onChange(of: selectedType) { _, _ in
+      .onChangeCompat(of: selectedType) { _, _ in
         withAnimation(.default) {
           reloader.toggle()
         }
       }
-      .onChange(of: selectedMode) { _, _ in
+      .onChangeCompat(of: selectedMode) { _, _ in
         withAnimation(.default) {
           reloader.toggle()
         }

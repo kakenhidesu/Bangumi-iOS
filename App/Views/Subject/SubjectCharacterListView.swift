@@ -57,7 +57,7 @@ struct SubjectCharacterListView: View {
     }
     .padding(.horizontal, 8)
     .pickerStyle(.segmented)
-    .onChange(of: castType) { _, _ in
+    .onChangeCompat(of: castType) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }

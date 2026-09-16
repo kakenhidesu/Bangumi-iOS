@@ -8,7 +8,7 @@ struct BootstrapLoadingView: View {
         .resizable()
         .scaledToFit()
         .frame(width: 72, height: 72)
-        .symbolEffect(.variableColor.iterative.dimInactiveLayers)
+        .variableColorSymbolEffectIfAvailable()
       Spacer()
     }
     .padding(24)

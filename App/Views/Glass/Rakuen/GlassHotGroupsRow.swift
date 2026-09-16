@@ -33,7 +33,7 @@ struct GlassHotGroupsRow: View {
           }
           .padding(.vertical, 2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
   }

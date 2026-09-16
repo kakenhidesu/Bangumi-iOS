@@ -257,10 +257,10 @@ private struct GlassTrendingTypeSection: View {
           }
           .frame(width: Self.smallCoverWidth, alignment: .leading)
         }
-      }.scrollTargetLayout()
+      }.scrollTargetLayoutIfAvailable()
     }
-    .scrollClipDisabled()
-    .scrollTargetBehavior(.viewAligned)
+    .scrollClipDisabledIfAvailable()
+    .viewAlignedScrollTargetBehaviorIfAvailable()
   }
 
   var body: some View {

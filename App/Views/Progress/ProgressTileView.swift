@@ -64,7 +64,7 @@ struct ProgressTileView: View {
       }
     }
     .padding(.horizontal, 8)
-    .onChange(of: paginationResetToken) { _, _ in
+    .onChangeCompat(of: paginationResetToken) { _, _ in
       prefetchState.reset()
     }
   }

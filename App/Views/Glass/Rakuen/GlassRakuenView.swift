@@ -57,12 +57,12 @@ struct GlassRakuenView: View {
       }
     }
     .navigationTitle("超展开")
-    .toolbarTitleDisplayMode(.inline)
+    .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .topBarLeading) {
+      ToolbarItem(placement: .navigationBarLeading) {
         leadingToolbarItem
       }
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Button {
           showMoreSheet = true
         } label: {
@@ -73,7 +73,7 @@ struct GlassRakuenView: View {
         }
       }
     }
-    .navigationDestination(item: $moreDestination) { destination in
+    .navigationDestinationCompat(item: $moreDestination) { destination in
       destination
     }
     .sheet(isPresented: $showMoreSheet, onDismiss: pushPendingDestination) {
@@ -85,7 +85,7 @@ struct GlassRakuenView: View {
     .onAppear {
       revertModeIfNeeded()
     }
-    .onChange(of: isAuthenticated) { _, _ in
+    .onChangeCompat(of: isAuthenticated) { _, _ in
       revertedMode = nil
       revertModeIfNeeded()
     }

@@ -128,9 +128,9 @@ struct ChiiRakuenView: View {
       }
     }
     .navigationTitle("超展开")
-    .toolbarTitleDisplayMode(.inline)
+    .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItemGroup(placement: .topBarLeading) {
+      ToolbarItemGroup(placement: .navigationBarLeading) {
         if isAuthenticated {
           NavigationLink(value: NavDestination.profileHome) {
             ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -139,7 +139,7 @@ struct ChiiRakuenView: View {
           .accessibilityLabel("我的")
         }
       }
-      ToolbarItem(placement: .topBarTrailing) {
+      ToolbarItem(placement: .navigationBarTrailing) {
         Menu {
           Menu {
             ForEach(SubjectTopicFilterMode.allCases, id: \.self) { mode in
@@ -197,7 +197,7 @@ struct ChiiRakuenView: View {
         }
       }
     }
-    .scrollClipDisabled()
+    .scrollClipDisabledIfAvailable()
   }
 
   private func categorySection(_ category: RakuenCategory) -> some View {

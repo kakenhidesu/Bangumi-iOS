@@ -72,7 +72,7 @@ struct CharacterRelationsView: View {
           }
           .padding(.horizontal, 2)
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
     .task(id: collectionCharacterIds) {

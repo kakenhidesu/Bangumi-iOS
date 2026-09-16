@@ -68,7 +68,7 @@ struct CollectionListView: View {
             counts: counts,
             selection: $collectionType
           )
-          .onChange(of: collectionType) { _, _ in
+          .onChangeCompat(of: collectionType) { _, _ in
             withAnimation(.default) {
               reloader.toggle()
             }

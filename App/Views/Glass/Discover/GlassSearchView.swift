@@ -89,11 +89,11 @@ struct GlassSearchView: View {
           .padding(.top, 2)
       }
     }
-    .onChange(of: searchType) { _, _ in
+    .onChangeCompat(of: searchType) { _, _ in
       remoteTotal = 0
       localCount = 0
     }
-    .onChange(of: text) { _, _ in
+    .onChangeCompat(of: text) { _, _ in
       remoteTotal = 0
     }
   }
@@ -233,7 +233,7 @@ private struct GlassSearchSubjectRow: View {
       await reload?()
       await loadCollectionType()
     }
-    .onChange(of: initialCollectionType) { _, newValue in
+    .onChangeCompat(of: initialCollectionType) { _, newValue in
       collectionType = newValue
     }
     .onReceive(
@@ -388,7 +388,7 @@ private struct GlassSubjectRemoteResults: View {
         reload: nil
       )
     }
-    .onChange(of: subjectType) { _, _ in
+    .onChangeCompat(of: subjectType) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }

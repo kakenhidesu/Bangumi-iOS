@@ -86,7 +86,7 @@ private struct ThemedScreenModifier: ViewModifier {
       }
       .background { HostingBackgroundClearer() }
       .scrollContentBackground(.hidden)
-      .listSectionSpacing(theme.metrics.listSpacing)
+      .listSectionSpacingIfAvailable(theme.metrics.listSpacing)
     if #available(iOS 26.0, *) {
       screen
     } else {

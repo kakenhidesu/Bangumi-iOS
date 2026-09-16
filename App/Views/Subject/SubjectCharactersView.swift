@@ -71,7 +71,7 @@ struct SubjectCharactersView: View {
             }
           }
         }
-        .scrollClipDisabled()
+        .scrollClipDisabledIfAvailable()
       }
     }
     .task(id: collectionCharacterIds) {

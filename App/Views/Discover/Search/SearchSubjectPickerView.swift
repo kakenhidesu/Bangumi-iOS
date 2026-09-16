@@ -4,7 +4,6 @@ struct SearchSubjectPickerView: View {
   let onSelect: (Int) -> Void
 
   @State private var searchText: String = ""
-  @State private var searching: Bool = false
   @State private var remote: Bool = false
   @State private var subjectType: SubjectType = .none
   @State private var showsResults = false
@@ -41,9 +40,9 @@ struct SearchSubjectPickerView: View {
           }
         }.padding()
       }
-      .searchable(text: $searchText, isPresented: $searching, prompt: "搜索条目")
+      .searchable(text: $searchText, prompt: "搜索条目")
       .searchInputTraits()
-      .searchPresentationToolbarBehavior(.avoidHidingContent)
+      .searchPresentationToolbarAvoidHidingContentIfAvailable()
       .onAppear {
         showsResults = !searchText.isEmpty
       }
@@ -52,7 +51,7 @@ struct SearchSubjectPickerView: View {
           remote = true
         }
       }
-      .onChange(of: searchText) { _, newValue in
+      .onChangeCompat(of: searchText) { _, newValue in
         let nextShowsResults = !newValue.isEmpty
         if showsResults != nextShowsResults {
           withAnimation(.default) {
@@ -107,7 +106,7 @@ struct SearchSubjectPickerRemoteView: View {
         dismiss()
       }
     }
-    .onChange(of: subjectType) { _, _ in
+    .onChangeCompat(of: subjectType) { _, _ in
       withAnimation(.default) {
         reloader.toggle()
       }

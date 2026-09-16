@@ -41,7 +41,7 @@ struct ChiiTimelineView: View {
       .navigationTitle("时空管理局")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
-        ToolbarItemGroup(placement: .topBarLeading) {
+        ToolbarItemGroup(placement: .navigationBarLeading) {
           if isAuthenticated {
             NavigationLink(value: NavDestination.profileHome) {
               ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -51,7 +51,7 @@ struct ChiiTimelineView: View {
           }
         }
 
-        ToolbarItemGroup(placement: .topBarTrailing) {
+        ToolbarItemGroup(placement: .navigationBarTrailing) {
           if isAuthenticated, !isolationMode {
             NavigationLink(value: NavDestination.notice) {
               Image(systemName: noticeUnreadCount > 0 ? "bell.badge.fill" : "bell")

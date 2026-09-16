@@ -105,7 +105,7 @@ struct GlassSubjectCollection: View {
       if interest.rate > 0 {
         Text("我打 \(interest.rate)")
           .font(.caption.weight(.bold))
-          .monospaced()
+          .monospacedCompat()
           .foregroundStyle(theme.onTintText)
       }
       Spacer(minLength: 0)
@@ -165,7 +165,7 @@ struct GlassSubjectCollection: View {
     HStack(alignment: .top, spacing: 10) {
       Text(label)
         .font(.caption2.weight(.semibold))
-        .monospaced()
+        .monospacedCompat()
         .foregroundStyle(theme.placeholder)
         .frame(width: 56, alignment: .leading)
       content()

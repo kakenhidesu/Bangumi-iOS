@@ -29,9 +29,11 @@ private struct SheetChromeModifier: ViewModifier {
       content
     } else if #available(iOS 26.0, *) {
       content
-    } else {
+    } else if #available(iOS 16.4, *) {
       content
         .presentationCornerRadius(theme.metrics.sheetRadius)
+    } else {
+      content
     }
   }
 }

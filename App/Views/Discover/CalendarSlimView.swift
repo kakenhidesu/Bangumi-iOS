@@ -166,7 +166,7 @@ struct CalendarSlimView: View {
     .task(id: reloadToken) {
       await loadCachedCalendar()
     }
-    .onChange(of: scenePhase) {
+    .onChangeCompat(of: scenePhase) {
       if scenePhase == .active {
         updateCurrentDate()
       }
@@ -228,9 +228,9 @@ struct CalendarWeekdaySlimView: View {
               await reloadCollectionType(item.subject.id)
             }
         }
-      }.scrollTargetLayout()
+      }.scrollTargetLayoutIfAvailable()
     }
-    .scrollClipDisabled()
-    .scrollTargetBehavior(.viewAligned)
+    .scrollClipDisabledIfAvailable()
+    .viewAlignedScrollTargetBehaviorIfAvailable()
   }
 }
