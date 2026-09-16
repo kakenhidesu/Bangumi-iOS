@@ -108,7 +108,7 @@ struct EpisodeView: View {
       await load()
     }
     .toolbar {
-      ToolbarItemGroup(placement: .navigationBarTrailing) {
+      ToolbarItemGroup(placement: .topBarTrailing) {
         Button {
           showCommentBox = true
         } label: {

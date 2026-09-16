@@ -214,7 +214,7 @@ struct LargeChapterView: View {
                 .foregroundStyle(.secondary)
             }.buttonStyle(.scale)
             Spacer()
-          }.monospacedCompat()
+          }.monospaced()
           HStack(alignment: .firstTextBaseline, spacing: 0) {
             Text("Vol. ").foregroundStyle(.secondary)
             TextField("\(data.volStatus)", text: inputs.vols)
@@ -233,7 +233,7 @@ struct LargeChapterView: View {
                 .foregroundStyle(.secondary)
             }.buttonStyle(.scale)
             Spacer()
-          }.monospacedCompat()
+          }.monospaced()
         }
         Spacer()
         if state.updating {

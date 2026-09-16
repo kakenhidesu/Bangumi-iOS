@@ -532,7 +532,7 @@ struct GlassProgressView: View {
     .navigationTitle("进度管理")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItemGroup(placement: .navigationBarLeading) {
+      ToolbarItemGroup(placement: .topBarLeading) {
         if isAuthenticated {
           NavigationLink(value: NavDestination.profileHome) {
             ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -541,7 +541,7 @@ struct GlassProgressView: View {
           .accessibilityLabel("我的")
         }
       }
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Button {
           showOptions = true
         } label: {

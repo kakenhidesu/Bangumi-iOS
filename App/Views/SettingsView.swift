@@ -675,7 +675,7 @@ struct SettingsView: View {
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       if isAuthenticated {
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .topBarTrailing) {
           Menu {
             Button(role: .destructive) {
               clearDraftsConfirm = true

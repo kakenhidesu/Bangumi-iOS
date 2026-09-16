@@ -191,16 +191,6 @@ extension View {
     }
   }
 
-  /// Applies monospaced on iOS 16.4+, falls back to monospacedDigit on earlier versions.
-  @ViewBuilder
-  func monospacedCompat() -> some View {
-    if #available(iOS 16.4, *) {
-      self.monospaced()
-    } else {
-      self.monospacedDigit()
-    }
-  }
-
   /// Keeps a popover as a popover in compact size classes on iOS 16.4+, returns self on earlier versions.
   @ViewBuilder
   func popoverCompactAdaptationIfAvailable() -> some View {
@@ -219,24 +209,6 @@ extension View {
     } else {
       self
     }
-  }
-}
-
-extension Animation {
-  /// Uses snappy on iOS 17+, falls back to an equivalent spring on earlier versions.
-  static func snappyCompat(duration: TimeInterval = 0.5, extraBounce: Double = 0) -> Animation {
-    if #available(iOS 17.0, *) {
-      return .snappy(duration: duration, extraBounce: extraBounce)
-    }
-    return .spring(response: duration, dampingFraction: 0.85 - extraBounce)
-  }
-
-  /// Uses smooth on iOS 17+, falls back to an equivalent spring on earlier versions.
-  static func smoothCompat(duration: TimeInterval = 0.5, extraBounce: Double = 0) -> Animation {
-    if #available(iOS 17.0, *) {
-      return .smooth(duration: duration, extraBounce: extraBounce)
-    }
-    return .spring(response: duration, dampingFraction: 1 - extraBounce)
   }
 }
 

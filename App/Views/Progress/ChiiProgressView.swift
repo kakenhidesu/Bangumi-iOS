@@ -536,7 +536,7 @@ struct ChiiProgressView: View {
 
   @ToolbarContentBuilder
   private var progressToolbar: some ToolbarContent {
-    ToolbarItemGroup(placement: .navigationBarLeading) {
+    ToolbarItemGroup(placement: .topBarLeading) {
       if isAuthenticated {
         NavigationLink(value: NavDestination.profileHome) {
           ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -545,7 +545,7 @@ struct ChiiProgressView: View {
         .accessibilityLabel("我的")
       }
     }
-    ToolbarItem(placement: .navigationBarTrailing) {
+    ToolbarItem(placement: .topBarTrailing) {
       progressToolbarContent
     }
   }

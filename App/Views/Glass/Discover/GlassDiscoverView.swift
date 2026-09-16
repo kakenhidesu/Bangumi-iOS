@@ -70,7 +70,7 @@ struct GlassDiscoverView: View {
     .navigationTitle("发现")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItemGroup(placement: .navigationBarLeading) {
+      ToolbarItemGroup(placement: .topBarLeading) {
         if isAuthenticated {
           NavigationLink(value: NavDestination.profileHome) {
             ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -78,7 +78,7 @@ struct GlassDiscoverView: View {
           .buttonStyle(.plain)
         }
       }
-      ToolbarItemGroup(placement: .navigationBarTrailing) {
+      ToolbarItemGroup(placement: .topBarTrailing) {
         if isAuthenticated, profile.canAccessWikiTools {
           NavigationLink(value: NavDestination.wikiHome) {
             ToolbarCircle {

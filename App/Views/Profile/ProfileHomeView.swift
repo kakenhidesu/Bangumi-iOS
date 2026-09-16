@@ -31,7 +31,7 @@ struct ProfileHomeView: View {
     }
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         ProfileActionsMenu()
       }
     }

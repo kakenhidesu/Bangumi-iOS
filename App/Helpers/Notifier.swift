@@ -81,11 +81,11 @@ class Notifier: ObservableObject {
   func notify(message: String, duration: TimeInterval = 2) {
     Logger.app.info("notify: \(message)")
     let notification = Notification(message: message)
-    withAnimation(.snappyCompat()) {
+    withAnimation(.snappy) {
       self.notifications.append(notification)
     }
     DispatchQueue.main.asyncAfter(deadline: .now() + duration) { [weak self] in
-      withAnimation(.snappyCompat()) {
+      withAnimation(.snappy) {
         self?.notifications.removeAll(where: { $0.id == notification.id })
       }
     }

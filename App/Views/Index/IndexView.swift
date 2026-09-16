@@ -273,7 +273,7 @@ struct IndexView: View {
     .navigationTitle("目录")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Menu {
           if isOwner {
             Button {

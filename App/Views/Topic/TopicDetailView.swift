@@ -421,7 +421,7 @@ struct TopicDetailView: View {
 
   @ToolbarContentBuilder
   private var toolbar: some ToolbarContent {
-    ToolbarItem(placement: .navigationBarTrailing) {
+    ToolbarItem(placement: .topBarTrailing) {
       Menu {
         Picker(selection: $filterMode) {
           ForEach(ReplyFilterMode.allCases, id: \.self) { mode in
@@ -591,7 +591,7 @@ struct TopicDetailView: View {
       sheet = .index
     case .reactionPicker(let postID, let anchorY):
       if let target = data?.postTarget(postID: postID) {
-        withAnimation(.snappyCompat(duration: 0.22, extraBounce: 0.04)) {
+        withAnimation(.snappy(duration: 0.22, extraBounce: 0.04)) {
           actionOverlay = .reactions(
             target,
             source.reactionType(postID: target.id).available,
@@ -611,7 +611,7 @@ struct TopicDetailView: View {
       }
     case .more(let postID, let anchorY):
       if let target = data?.postTarget(postID: postID) {
-        withAnimation(.snappyCompat(duration: 0.22, extraBounce: 0.04)) {
+        withAnimation(.snappy(duration: 0.22, extraBounce: 0.04)) {
           actionOverlay = .more(
             target,
             canEdit: target.post.creatorID == profile.id,

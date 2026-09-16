@@ -129,7 +129,7 @@ struct GlassSubjectDetailView: View {
           .truncationMode(.tail)
           .frame(maxWidth: 220)
       }
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Menu {
           menuItems
         } label: {

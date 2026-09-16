@@ -47,7 +47,7 @@ struct GlassGroupDetailView: View {
       }
     }
     .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Menu {
           menuContent
         } label: {

@@ -63,7 +63,7 @@ struct GroupListView: View {
     }
     .navigationTitle(mode.title)
     .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Menu {
           ForEach(GroupSortMode.allCases, id: \.self) { mode in
             Button {

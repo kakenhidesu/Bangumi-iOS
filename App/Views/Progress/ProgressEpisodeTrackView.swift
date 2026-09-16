@@ -807,7 +807,7 @@ struct ProgressEpisodeTicksView: View {
   private func applyPlayhead(_ index: Int) {
     let clamped = min(max(index, 0), max(episodes.count - 1, 0))
     if scrubIndex != clamped {
-      withAnimation(.snappyCompat(duration: 0.16)) {
+      withAnimation(.snappy(duration: 0.16)) {
         scrubIndex = clamped
         clampWindow(to: clamped)
       }
@@ -1075,7 +1075,7 @@ struct ProgressEpisodeTicksView: View {
       }
     }
     .allowsHitTesting(false)
-    .animation(.snappyCompat(duration: 0.16), value: captionAnchorIndex)
+    .animation(.snappy(duration: 0.16), value: captionAnchorIndex)
   }
 
   private func tickLayout(width: CGFloat? = nil) -> (unit: CGFloat, flexes: [CGFloat])? {
@@ -1149,8 +1149,8 @@ struct ProgressEpisodeTicksView: View {
         y: focus ? theme.ctaShadow.y : theme.chipShadow.y
       )
       .animation(.spring(response: 0.2, dampingFraction: 0.68), value: playheadIndex)
-      .animation(.smoothCompat(duration: 0.28), value: currentIndex)
-      .animation(.smoothCompat(duration: 0.2), value: railAction)
+      .animation(.smooth(duration: 0.28), value: currentIndex)
+      .animation(.smooth(duration: 0.2), value: railAction)
   }
 
   private func tickWidth(distance: Int) -> CGFloat? {

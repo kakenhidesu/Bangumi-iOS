@@ -130,7 +130,7 @@ struct ChiiRakuenView: View {
     .navigationTitle("超展开")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItemGroup(placement: .navigationBarLeading) {
+      ToolbarItemGroup(placement: .topBarLeading) {
         if isAuthenticated {
           NavigationLink(value: NavDestination.profileHome) {
             ProfileToolbarAvatarView(imageURL: profile.avatar?.large)
@@ -139,7 +139,7 @@ struct ChiiRakuenView: View {
           .accessibilityLabel("我的")
         }
       }
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Menu {
           Menu {
             ForEach(SubjectTopicFilterMode.allCases, id: \.self) { mode in

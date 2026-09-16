@@ -43,7 +43,6 @@ struct EpisodeItemView: View {
       .strikethrough(episode.status == EpisodeCollectionType.dropped.rawValue)
       .overlay {
         RoundedRectangle(cornerRadius: 2)
-          .fill(.clear)
           .stroke(colors.border, lineWidth: 1)
       }
       .episodeTrend(episode)

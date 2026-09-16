@@ -129,7 +129,7 @@ struct SubjectWikiCoversView: View {
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       if canEditCovers {
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .topBarTrailing) {
           PhotosPicker(selection: $selectedPhoto, matching: .images) {
             Label("上传", systemImage: "square.and.arrow.up")
           }

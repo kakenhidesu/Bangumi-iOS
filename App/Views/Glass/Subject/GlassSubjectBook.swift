@@ -125,19 +125,19 @@ struct GlassSubjectBookProgress: View {
     HStack(spacing: 8) {
       Text(verbatim: title)
         .font(.caption2.weight(.semibold))
-        .monospacedCompat()
+        .monospaced()
         .foregroundStyle(theme.placeholder)
       TextField("\(status)", text: value)
         .keyboardType(.numberPad)
         .textFieldStyle(.plain)
         .font(.headline.weight(.heavy))
-        .monospacedCompat()
+        .monospaced()
         .foregroundStyle(theme.cardTitle)
         .frame(maxWidth: .infinity, alignment: .leading)
       if total != "??" {
         Text(verbatim: "/\(total)")
           .font(.caption2)
-          .monospacedCompat()
+          .monospaced()
           .foregroundStyle(theme.tertiaryText)
       }
       Button(action: action) {
@@ -196,7 +196,7 @@ struct GlassSubjectOffprints: View {
         if !offprints.isEmpty {
           Text("共 \(offprints.count) 卷")
             .font(.caption2.weight(.semibold))
-            .monospacedCompat()
+            .monospaced()
             .foregroundStyle(theme.tertiaryText)
         }
       }
@@ -312,7 +312,7 @@ struct GlassSubjectDiscs: View {
             ForEach(Array(discs.keys.sorted()), id: \.self) { disc in
               Text("DISC \(disc)")
                 .font(.caption2.weight(.bold))
-                .monospacedCompat()
+                .monospaced()
                 .foregroundStyle(theme.placeholder)
                 .padding(.top, 7)
                 .padding(.bottom, 3)
@@ -338,7 +338,7 @@ struct GlassSubjectDiscs: View {
       HStack(alignment: .firstTextBaseline, spacing: 9) {
         Text(episode.sort.episodeDisplay)
           .font(.caption.weight(.bold))
-          .monospacedCompat()
+          .monospaced()
           .foregroundStyle(theme.tertiaryText)
           .frame(width: 26, alignment: .trailing)
         VStack(alignment: .leading, spacing: 2) {
@@ -359,7 +359,7 @@ struct GlassSubjectDiscs: View {
         if !episode.duration.isEmpty {
           Text(episode.duration)
             .font(.caption2.weight(.semibold))
-            .monospacedCompat()
+            .monospaced()
             .foregroundStyle(theme.placeholder)
         }
       }

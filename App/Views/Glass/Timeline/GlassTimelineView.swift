@@ -59,7 +59,7 @@ struct GlassTimelineView: View {
       .navigationTitle("时空管理局")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
-        ToolbarItemGroup(placement: .navigationBarLeading) {
+        ToolbarItemGroup(placement: .topBarLeading) {
           leadingItem
         }
 
@@ -67,7 +67,7 @@ struct GlassTimelineView: View {
           GlassModeTabs(selection: modeSelection, items: modeItems)
         }
 
-        ToolbarItemGroup(placement: .navigationBarTrailing) {
+        ToolbarItemGroup(placement: .topBarTrailing) {
           if isAuthenticated, !isolationMode {
             NavigationLink(value: NavDestination.notice) {
               ToolbarCircle {

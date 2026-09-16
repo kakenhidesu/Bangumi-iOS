@@ -193,7 +193,7 @@ struct UserView: View {
       }
     }
     .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Menu {
           if let user = displayedUser?.slim {
             NavigationLink(value: NavDestination.userCollection(user, .anime, [:])) {

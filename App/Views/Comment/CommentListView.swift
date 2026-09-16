@@ -412,7 +412,7 @@ struct CommentListView: View {
   @ToolbarContentBuilder
   private var toolbar: some ToolbarContent {
     if !isEpisodeDetail {
-      ToolbarItemGroup(placement: .navigationBarTrailing) {
+      ToolbarItemGroup(placement: .topBarTrailing) {
         Button {
           sheet = .newReply
         } label: {
@@ -653,7 +653,7 @@ struct CommentListView: View {
       else {
         return
       }
-      withAnimation(.snappyCompat(duration: 0.22, extraBounce: 0.04)) {
+      withAnimation(.snappy(duration: 0.22, extraBounce: 0.04)) {
         actionOverlay = .reactions(
           target,
           reactionType.available,
@@ -676,7 +676,7 @@ struct CommentListView: View {
       guard let target = postTarget(postID: postID) else {
         return
       }
-      withAnimation(.snappyCompat(duration: 0.22, extraBounce: 0.04)) {
+      withAnimation(.snappy(duration: 0.22, extraBounce: 0.04)) {
         actionOverlay = .more(
           target,
           canEdit: isAuthenticated && route.parent.supportsEditing

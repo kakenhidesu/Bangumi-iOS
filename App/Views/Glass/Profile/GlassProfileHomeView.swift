@@ -22,7 +22,7 @@ struct GlassProfileHomeView: View {
     }
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Menu {
           NavigationLink(value: NavDestination.profilePrivacy) {
             Label("隐私设置", systemImage: "hand.raised")

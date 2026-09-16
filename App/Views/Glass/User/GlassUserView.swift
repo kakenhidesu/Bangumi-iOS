@@ -116,7 +116,7 @@ struct GlassUserView: View {
   var body: some View {
     content
       .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .topBarTrailing) {
           Button {
             showMore = true
           } label: {

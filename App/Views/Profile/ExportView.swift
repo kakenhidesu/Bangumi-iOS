@@ -99,7 +99,7 @@ struct ExportView: View {
     .navigationTitle("导出收藏")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Button("全选") {
           selectedFields = Set(ExportableField.allCases)
         }

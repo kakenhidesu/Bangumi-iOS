@@ -59,10 +59,10 @@ struct GlassRakuenView: View {
     .navigationTitle("超展开")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .navigationBarLeading) {
+      ToolbarItem(placement: .topBarLeading) {
         leadingToolbarItem
       }
-      ToolbarItem(placement: .navigationBarTrailing) {
+      ToolbarItem(placement: .topBarTrailing) {
         Button {
           showMoreSheet = true
         } label: {

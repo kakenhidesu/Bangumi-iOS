@@ -97,7 +97,7 @@ struct GlassSubjectSummary: View {
           .lineLimit(1)
         Text("\(tag.count)")
           .font(.caption2.weight(.semibold))
-          .monospacedCompat()
+          .monospaced()
           .foregroundStyle(isMeta ? theme.onTintText.opacity(0.7) : theme.tertiaryText)
       }
       .padding(.horizontal, 10)
@@ -217,7 +217,7 @@ struct GlassCharacterCard: View {
             HStack(spacing: 3) {
               Text(item.type.description)
                 .font(.caption2.weight(.bold))
-                .monospacedCompat()
+                .monospaced()
                 .foregroundStyle(item.type == .main ? theme.onTintText : theme.secondaryText)
               if let comment = item.character.comment, comment > 0, !isolationMode {
                 Text("(+\(comment))")
@@ -301,7 +301,7 @@ struct GlassSubjectRelations: View {
               VStack(alignment: .leading, spacing: 5) {
                 Text(relationLabel(relation))
                   .font(.caption2.weight(.bold))
-                  .monospacedCompat()
+                  .monospaced()
                   .foregroundStyle(theme.placeholder)
                   .lineLimit(1)
                 ImageView(img: relation.subject.images?.resize(.r200))
@@ -951,7 +951,7 @@ struct GlassSubjectTopicRow: View {
         if let count = topic.replyCount, count > 0 {
           Text("+\(count)")
             .font(.caption2.weight(.bold))
-            .monospacedCompat()
+            .monospaced()
             .foregroundStyle(theme.onTintText)
             .padding(.horizontal, 8)
             .padding(.vertical, 2)
@@ -1070,7 +1070,7 @@ struct GlassSubjectFooter: View {
   var body: some View {
     Text(verbatim: "— 到底了 · subject/\(subjectId) —")
       .font(.caption2.weight(.semibold))
-      .monospacedCompat()
+      .monospaced()
       .foregroundStyle(theme.placeholder)
       .frame(maxWidth: .infinity)
       .padding(.top, 6)

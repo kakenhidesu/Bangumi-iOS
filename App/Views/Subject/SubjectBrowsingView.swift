@@ -289,7 +289,7 @@ struct SubjectBrowsingView: View {
       }
     }
     .toolbar {
-      ToolbarItemGroup(placement: .navigationBarTrailing) {
+      ToolbarItemGroup(placement: .topBarTrailing) {
         Button {
           withAnimation(.default) {
             showFilter = true
@@ -406,7 +406,7 @@ struct SubjectBrowsingFilterView: View {
     SheetView(
       title: "筛选",
       showsCloseButton: false,
-      controlsPlacement: .navigationBarTrailing
+      controlsPlacement: .topBarTrailing
     ) {
       ScrollView {
         VStack {
@@ -792,7 +792,7 @@ struct SubjectTagBrowsingView: View {
     .navigationTitle(title)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItemGroup(placement: .navigationBarTrailing) {
+      ToolbarItemGroup(placement: .topBarTrailing) {
         Menu {
           Picker("标签", selection: $tagsCat.animated()) {
             ForEach(SubjectTagsCategory.allCases, id: \.self) { cat in
