@@ -48,7 +48,7 @@ enum AppMetadata {
   static let appInfo = AppInfo(
     clientId: clientId,
     clientSecret: clientSecret,
-    callbackURL: "chii://oauth/callback"
+    callbackURL: "bangumi://oauth/callback"
   )
 
   @MainActor
