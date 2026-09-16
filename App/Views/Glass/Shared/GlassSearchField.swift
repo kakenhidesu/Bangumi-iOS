@@ -32,7 +32,7 @@ struct GlassSearchField: View {
       Image(systemName: "magnifyingglass")
         .font(.system(size: 15, weight: .semibold))
         .foregroundStyle(theme.placeholder)
-      TextField("", text: $text, prompt: Text(prompt).foregroundStyle(theme.placeholder))
+      TextField("", text: $text, prompt: Text(prompt).foregroundColor(theme.placeholder))
         .textFieldStyle(.plain)
         .focused(isFocused)
         .font(.subheadline.weight(.semibold))

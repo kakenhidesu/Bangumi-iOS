@@ -426,7 +426,7 @@ struct SubjectCollectionBoxView: View {
 
   private var tagsField: some View {
     HStack(spacing: 8) {
-      TextField("", text: $tagsInput, prompt: Text("标签").foregroundStyle(theme.placeholder))
+      TextField("", text: $tagsInput, prompt: Text("标签").foregroundColor(theme.placeholder))
         .focused($tagsFocused)
         .autocorrectionDisabled()
         .textInputAutocapitalization(.never)

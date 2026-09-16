@@ -350,7 +350,7 @@ struct SubjectCardView: View {
     }
     if rating.score > 0 {
       let img = Image(systemName: "star.fill")
-      text.append(Text("\(img)").foregroundStyle(.orange).baselineOffset(1))
+      text.append(Text("\(img)").foregroundColor(.orange).baselineOffset(1))
       let score = String(format: "%.1f", rating.score)
       text.append(Text(" \(score)"))
     }
