@@ -217,7 +217,7 @@ struct UserView: View {
               }
             }
             NavigationLink(value: NavDestination.userGroup(user)) {
-              Label("小组", systemImage: "rectangle.3.group.bubble")
+              Label("小组", systemImage: "rectangle.3.group.bubble.left")
             }
             NavigationLink(value: NavDestination.userFriend(user)) {
               Label("好友", systemImage: "person.2")

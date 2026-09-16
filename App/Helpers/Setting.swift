@@ -406,7 +406,7 @@ enum ChiiViewTab: String {
     case .progress:
       "square.grid.2x2"
     case .rakuen:
-      "rectangle.3.group.bubble"
+      "rectangle.3.group.bubble.left"
     case .discover:
       "safari"
     case .search:

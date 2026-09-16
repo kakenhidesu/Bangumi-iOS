@@ -1567,8 +1567,8 @@ enum IndexRelatedCategory: Int, Codable, CaseIterable {
     case .person: return "person.fill"
     case .episode: return "play.circle"
     case .blog: return "text.below.photo.fill"
-    case .groupTopic: return "rectangle.3.group.bubble"
-    case .subjectTopic: return "rectangle.3.group.bubble"
+    case .groupTopic: return "rectangle.3.group.bubble.left"
+    case .subjectTopic: return "rectangle.3.group.bubble.left"
     }
   }
 }

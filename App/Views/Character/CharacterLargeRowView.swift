@@ -22,7 +22,7 @@ struct CharacterLargeRowView: View {
           .foregroundStyle(.secondary)
           .lineLimit(2)
         if character.comment > 0 {
-          Label("评论: \(character.comment)", systemImage: "bubble")
+          Label("评论: \(character.comment)", systemImage: "bubble.left")
             .font(.footnote)
             .foregroundStyle(.secondary)
         }

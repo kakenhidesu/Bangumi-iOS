@@ -77,7 +77,7 @@ enum ProgressTickAction: Equatable, Identifiable {
     case .status(let type):
       type.icon
     case .discuss:
-      "bubble"
+      "bubble.left"
     }
   }
 }

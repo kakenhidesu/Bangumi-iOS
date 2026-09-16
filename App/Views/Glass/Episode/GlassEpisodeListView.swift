@@ -211,7 +211,7 @@ private struct GlassEpisodeRowView: View {
           }
           Spacer(minLength: 0)
           if !isolationMode {
-            Label("+\(episode.comment)", systemImage: "bubble")
+            Label("+\(episode.comment)", systemImage: "bubble.left")
           }
         }
         .font(.caption)

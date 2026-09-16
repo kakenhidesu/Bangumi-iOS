@@ -69,7 +69,7 @@ struct EpisodeRowView: View {
               ).lineLimit(1)
             }
             if !isolationMode {
-              Label("+\(episode.comment)", systemImage: "bubble")
+              Label("+\(episode.comment)", systemImage: "bubble.left")
             }
           }
           .font(.footnote)
