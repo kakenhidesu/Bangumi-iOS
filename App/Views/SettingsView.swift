@@ -30,7 +30,7 @@ struct SettingsView: View {
   @State private var clearDraftsConfirm: Bool = false
   @State private var showEULA: Bool = false
   @State private var showMirrorDomainSettings: Bool = false
-  @State private var appIconController = AppIconController()
+  @StateObject private var appIconController = AppIconController()
 
   @Environment(\.theme) private var theme
 

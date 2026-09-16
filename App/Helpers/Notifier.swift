@@ -1,10 +1,10 @@
+import Combine
 import Foundation
 import OSLog
 import SwiftUI
 
 @MainActor
-@Observable
-class Notifier {
+class Notifier: ObservableObject {
   struct Notification: Identifiable, Equatable {
     let id = UUID()
     let message: String
@@ -12,9 +12,9 @@ class Notifier {
 
   static let shared = Notifier()
 
-  var hasAlert: Bool = false
-  var currentError: ChiiError? = nil
-  var notifications: [Notification] = []
+  @Published var hasAlert: Bool = false
+  @Published var currentError: ChiiError? = nil
+  @Published var notifications: [Notification] = []
   private var pendingError: ChiiError? = nil
 
   func alert(error: ChiiError) {

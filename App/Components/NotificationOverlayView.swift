@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct NotificationOverlayView: View {
-  @State private var notifier = Notifier.shared
+  @StateObject private var notifier = Notifier.shared
 
   @Environment(\.theme) private var theme
 

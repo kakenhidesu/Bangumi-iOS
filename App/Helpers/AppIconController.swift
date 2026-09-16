@@ -1,4 +1,4 @@
-import Observation
+import Combine
 import UIKit
 
 enum AlternateAppIcon: String, CaseIterable {
@@ -34,11 +34,10 @@ enum AlternateAppIcon: String, CaseIterable {
 }
 
 @MainActor
-@Observable
-final class AppIconController {
+final class AppIconController: ObservableObject {
   let isAvailable = UIApplication.shared.supportsAlternateIcons
-  private(set) var isUpdating = false
-  var selection: AlternateAppIcon
+  @Published private(set) var isUpdating = false
+  @Published var selection: AlternateAppIcon
 
   init() {
     selection = AlternateAppIcon(iconName: UIApplication.shared.alternateIconName)

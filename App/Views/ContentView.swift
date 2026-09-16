@@ -6,7 +6,7 @@ struct ContentView: View {
   @AppStorage("profile") var profile: Profile = Profile()
   @AppStorage("blocklist") var blocklist: [Int] = []
 
-  @State private var notifier = Notifier.shared
+  @StateObject private var notifier = Notifier.shared
 
   private func refreshProfile() async -> Bool {
     if !isAuthenticated {
