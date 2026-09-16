@@ -1,0 +1,84 @@
+name: Unsigned IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build unsigned IPA
+    runs-on: macos-26
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "latest-stable"
+
+      - name: Prepare app config
+        env:
+          BANGUMI_APP_ID: ${{ secrets.BANGUMI_APP_ID }}
+          BANGUMI_APP_SECRET: ${{ secrets.BANGUMI_APP_SECRET }}
+        run: |
+          set -euo pipefail
+          if [ -n "${BANGUMI_APP_ID:-}" ] && [ -n "${BANGUMI_APP_SECRET:-}" ]; then
+            cat > App/Config.xcconfig <<EOF
+          BANGUMI_APP_ID = ${BANGUMI_APP_ID}
+          BANGUMI_APP_SECRET = ${BANGUMI_APP_SECRET}
+          EOF
+            echo "Using BANGUMI_APP_ID from repository secrets."
+          else
+            cp App/Config.xcconfig.example App/Config.xcconfig
+            echo "::warning::BANGUMI_APP_ID / BANGUMI_APP_SECRET are not set, login will not work in this build."
+          fi
+
+      - name: Build for device without signing
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -project Bangumi.xcodeproj \
+            -scheme Bangumi \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            PROVISIONING_PROFILE_SPECIFIER="" \
+            DEVELOPMENT_TEAM="" \
+            build -quiet
+
+      - name: Package IPA
+        id: package
+        run: |
+          set -euo pipefail
+          APP_PATH="build/Build/Products/Release-iphoneos/Bangumi.app"
+          if [ ! -d "$APP_PATH" ]; then
+            echo "Built app not found at $APP_PATH" >&2
+            exit 1
+          fi
+
+          PROJECT_FILE="Bangumi.xcodeproj/project.pbxproj"
+          MARKETING=$(sed -n 's/.*MARKETING_VERSION = \([^;]*\);.*/\1/p' "$PROJECT_FILE" | head -n 1 | tr -d '"')
+          BUILD_NUMBER=$(sed -n 's/.*CURRENT_PROJECT_VERSION = \([^;]*\);.*/\1/p' "$PROJECT_FILE" | head -n 1 | tr -d '"')
+          NAME="Bangumi-iOS-${MARKETING}-${BUILD_NUMBER}-$(git rev-parse --short HEAD)-unsigned"
+
+          rm -rf payload
+          mkdir -p payload/Payload
+          cp -R "$APP_PATH" payload/Payload/
+          rm -rf "payload/Payload/Bangumi.app/_CodeSignature"
+          rm -f "payload/Payload/Bangumi.app/embedded.mobileprovision"
+          (cd payload && zip -qry "../${NAME}.ipa" Payload)
+
+          echo "name=${NAME}" >> "$GITHUB_OUTPUT"
+          ls -lh "${NAME}.ipa"
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.package.outputs.name }}
+          path: ${{ steps.package.outputs.name }}.ipa
+          retention-days: 30
+          if-no-files-found: error
